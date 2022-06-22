@@ -1,0 +1,4 @@
+"Src/bcd.o"
+"Src/led.o"
+"Src/siete_segmentos.o"
+"Startup/startup_stm32f103c8tx.o"

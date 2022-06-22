@@ -1,0 +1,9 @@
+.syntax		unified
+.cpu  		cortex-m3
+.thumb
+
+.section .text
+.align 2
+
+.global calcular_potencia
+

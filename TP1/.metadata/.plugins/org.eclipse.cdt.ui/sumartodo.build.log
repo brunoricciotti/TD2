@@ -1,0 +1,10 @@
+12:45:28 **** Incremental Build of configuration Debug for project sumartodo ****
+make -j12 all 
+arm-none-eabi-size   sumartodo.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4688	     88	   1568	   6344	   18c8	sumartodo.elf
+Finished building: default.size.stdout
+ 
+
+12:45:29 Build Finished. 0 errors, 0 warnings. (took 297ms)
+

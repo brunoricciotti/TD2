@@ -1,0 +1,17 @@
+23:05:21 **** Incremental Build of configuration Debug for project potencia ****
+make -j12 all 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Core/Src/calcular_potencia.d" -MT"Core/Src/calcular_potencia.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/calcular_potencia.o" "../Core/Src/calcular_potencia.s"
+arm-none-eabi-gcc -o "potencia.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Documentos\TD2\TP1\potencia\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="potencia.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: potencia.elf
+ 
+arm-none-eabi-size   potencia.elf 
+arm-none-eabi-objdump -h -S  potencia.elf  > "potencia.list"
+   text	   data	    bss	    dec	    hex	filename
+   3700	     84	   1572	   5356	   14ec	potencia.elf
+Finished building: default.size.stdout
+ 
+Finished building: potencia.list
+ 
+
+23:05:23 Build Finished. 0 errors, 0 warnings. (took 2s.39ms)
+

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/esala/Desktop/clase_01/clase_01-Material/nano_controlador/sys_nano_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="math_real" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="sys_nano_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="11" />
+   <wave_markers>
+      <marker time="35210000000" label="" />
+      <marker time="5010000000" label="" />
+   </wave_markers>
+   <wvobject fp_name="/sys_nano_tb/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_nano_tb/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_nano_tb/leds" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">leds[15:0]</obj_property>
+      <obj_property name="ObjectShortName">leds[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_nano_tb/uut/wr" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">wr</obj_property>
+      <obj_property name="ObjectShortName">wr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_nano_tb/uut/wr_po" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">wr_po</obj_property>
+      <obj_property name="ObjectShortName">wr_po</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_nano_tb/uut/wr_tim" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">wr_tim</obj_property>
+      <obj_property name="ObjectShortName">wr_tim</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_nano_tb/uut/addr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">addr[15:0]</obj_property>
+      <obj_property name="ObjectShortName">addr[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_nano_tb/uut/din_nano" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">din_nano[15:0]</obj_property>
+      <obj_property name="ObjectShortName">din_nano[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_nano_tb/uut/dout_nano" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dout_nano[15:0]</obj_property>
+      <obj_property name="ObjectShortName">dout_nano[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_nano_tb/uut/up/cmp_regs/ram" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ram[0:15]</obj_property>
+      <obj_property name="ObjectShortName">ram[0:15]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_nano_tb/uut/tim/z" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">z</obj_property>
+      <obj_property name="ObjectShortName">z</obj_property>
+   </wvobject>
+</wave_config>
