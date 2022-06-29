@@ -1,0 +1,10 @@
+01:10:10 **** Incremental Build of configuration Debug for project ledfreertos ****
+make -j12 all 
+arm-none-eabi-size   ledfreertos.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16392	     24	   7056	  23472	   5bb0	ledfreertos.elf
+Finished building: default.size.stdout
+ 
+
+01:10:10 Build Finished. 0 errors, 0 warnings. (took 427ms)
+

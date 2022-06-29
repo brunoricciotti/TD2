@@ -1,0 +1,3 @@
+tareas.c:7:6:Inicializar_tareas	16	static
+tareas.c:20:5:Agregar_tarea	32	static
+tareas.c:38:6:Despachar_tarea	16	static

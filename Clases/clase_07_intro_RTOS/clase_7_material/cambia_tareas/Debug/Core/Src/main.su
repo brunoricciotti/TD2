@@ -1,0 +1,7 @@
+main.c:61:6:TareaON	8	static
+main.c:69:6:TareaOFF	8	static
+main.c:82:5:main	8	static
+main.c:128:6:SystemClock_Config	88	static
+main.c:173:13:MX_USART2_UART_Init	8	static
+main.c:206:13:MX_GPIO_Init	48	static
+main.c:242:6:Error_Handler	4	static

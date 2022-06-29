@@ -1,0 +1,10 @@
+14:08:54 **** Incremental Build of configuration Debug for project xorshift ****
+make -j12 all 
+arm-none-eabi-size   xorshift.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4740	     20	   1572	   6332	   18bc	xorshift.elf
+Finished building: default.size.stdout
+ 
+
+14:08:54 Build Finished. 0 errors, 0 warnings. (took 344ms)
+

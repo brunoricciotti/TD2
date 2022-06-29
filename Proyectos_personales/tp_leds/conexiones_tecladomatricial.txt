@@ -1,0 +1,3 @@
+el pin 8 va 3.3V y este esta conectado a 1 y 2
+el pin 4 va conectado a B1 y es la tecla 1
+el pin 3 va conectado a B0 y es la tecla 2

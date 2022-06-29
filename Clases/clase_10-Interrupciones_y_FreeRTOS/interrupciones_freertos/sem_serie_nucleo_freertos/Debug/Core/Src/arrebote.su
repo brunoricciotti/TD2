@@ -1,0 +1,4 @@
+arrebote.c:3:6:inicializar_arrebote	16	static
+arrebote.c:13:6:chequear_arrebote	24	static
+arrebote.c:72:5:hay_flanco_arrebote	16	static
+arrebote.c:77:23:estado_boton_arrebote	16	static

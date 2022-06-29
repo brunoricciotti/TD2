@@ -1,0 +1,5 @@
+serie_freertos.c:11:6:HAL_UART_TxCpltCallback	24	static,ignoring_inline_asm
+serie_freertos.c:19:6:HAL_UART_RxCpltCallback	24	static,ignoring_inline_asm
+serie_freertos.c:29:6:serieFreeRTOS_inicializar	16	static
+serie_freertos.c:38:6:serieFreeRTOS_gets	16	static
+serie_freertos.c:44:6:serieFreeRTOS_puts	16	static
