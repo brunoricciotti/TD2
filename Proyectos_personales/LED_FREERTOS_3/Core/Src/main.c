@@ -24,7 +24,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 
-TaskHandle_t task1,task2;
+TaskHandle_t task1,task2,task_pulsadores;
 
 /* Private variables ---------------------------------------------------------*/
 /* Definitions for defaultTask */
@@ -62,61 +62,88 @@ void setear_led(int n_led, int estado)
 
 void tarea_LED1()
 {
-	portTickType xLastWakeTime = xTaskGetTickCount();
-
 	for(;;){
 
-		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
-		vTaskDelayUntil(&xLastWakeTime, (250 / portTICK_RATE_MS));//nunca debe retorna
+		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7,GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9,GPIO_PIN_RESET);
+		vTaskPrioritySet(task_pulsadores,3);//vuelvo a leer pulsadores
 	}
 }
 void tarea_LED2()
 {
-	portTickType xLastWakeTime = xTaskGetTickCount();
-
 	for(;;){
 
-		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_9);
-		vTaskDelayUntil(&xLastWakeTime, (250 / portTICK_RATE_MS));//nunca debe retorna
+		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7,GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9,GPIO_PIN_SET);
+		vTaskPrioritySet(task_pulsadores,3);//vuelvo a leer pulsadores
 	}
 }
 
 void tarea_pulsadores()
 {
 	static uint16_t vez = 1;
-	uint32_t res;
-	uint32_t maximo = 4294967295;
+	uint32_t res,seed = 100;
 
 	for(;;)
 	{
-		if(!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0)){//entra si el pulsador esta presionado
+		if(!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0)){//entra si el pulsador 1 esta presionado
 
 			if(vez%2)//si vez es par, no entra
 			{
+				vez++;
 				vTaskPrioritySet(task1, 2);//Hago que la prioridad de task1 sea 2
 				vTaskPrioritySet(task2, 1);//Hago que la prioridad de task2 sea 1
-				vez++;
+				vTaskPrioritySet(NULL,1);//Le bajo la prioridad para que se ejecute la otra
+
 			}
 			else
 			{
+				vez++;
 				vTaskPrioritySet(task1, 1);//Hago que la prioridad de task1 sea 1
 				vTaskPrioritySet(task2, 2);//Hago que la prioridad de task2 sea 2
-				vez++;
+				vTaskPrioritySet(NULL,1);//Le bajo la prioridad para que se ejecute la otra
+			}
+		}
+
+		if(!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1)){//entra si el pulsador 2 esta presionado
+
+			xorshift_inic(seed);//semilla
+			res = xorshift();
+
+			//hago que los valores de res vayan de 0 a 2
+			if(res % 5){
+				res = 0;//si no es divisible por 5 res = 0
+			}
+			else if(!(res % 2)){
+				res = 1;
+			}
+			else res = 2;
+
+			if(res == 0){
+				vTaskPrioritySet(task1, 1);//Hago que la prioridad de task1 sea 1
+				vTaskPrioritySet(task2, 1);//Hago que la prioridad de task2 sea 1
+			}
+			else if(res == 1){
+				vTaskPrioritySet(task1, 1);//Hago que la prioridad de task1 sea 1
+				vTaskPrioritySet(task2, 2);//Hago que la prioridad de task2 sea 2
+				vTaskPrioritySet(NULL,1);//Le bajo la prioridad para que se ejecute la otra
+			}
+			else{
+				vTaskPrioritySet(task1, 2);//Hago que la prioridad de task1 sea 2
+				vTaskPrioritySet(task2, 1);//Hago que la prioridad de task2 sea 1
+				vTaskPrioritySet(NULL,1);//Le bajo la prioridad para que se ejecute la otra
 			}
 
-		if(!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1)){//entra si el pulsador esta presionado
-
-			xorshift_inic(100);//semilla
-			res = xorshift();
-			if(res)
-			vTaskPrioritySet(task2, 1);//Hago que la prioridad sea la mas alta para que
+			seed = seed*(seed+res+1);//cambio la semilla
+		}
+			/*vTaskPrioritySet(task2, 1);//Hago que la prioridad sea la mas alta para que
 			boton = 2;											 //al desploquearse los task anteriores no cambie los LED
 		}
 		else if(boton == 2){
 
 			vTaskPrioritySet(task2, 3);//Hago que la prioridad sea mas baja para que al desbloquarse el task cambie los LED
 			boton = 0;//si entro aca me olvido del boton
-		}
+		}*/
 	}
 }
 
@@ -183,7 +210,7 @@ int main(void)
 				  128,
 				  NULL,
 				  3,
-				  NULL)!= pdPASS) findelprograma();
+				  &task_pulsadores)!= pdPASS) findelprograma();
 
 
   /* Create the thread(s) */

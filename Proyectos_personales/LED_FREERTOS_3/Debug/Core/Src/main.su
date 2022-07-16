@@ -1,0 +1,11 @@
+../Core/Src/main.c:54:6:setear_led	16	static
+../Core/Src/main.c:63:6:tarea_LED1	8	static
+../Core/Src/main.c:72:6:tarea_LED2	8	static
+../Core/Src/main.c:82:6:tarea_pulsadores	16	static
+../Core/Src/main.c:150:6:findelprograma	16	static,ignoring_inline_asm
+../Core/Src/main.c:160:5:main	16	static
+../Core/Src/main.c:243:6:SystemClock_Config	72	static
+../Core/Src/main.c:282:13:MX_GPIO_Init	40	static
+../Core/Src/main.c:320:6:StartDefaultTask	16	static
+../Core/Src/main.c:339:6:HAL_TIM_PeriodElapsedCallback	16	static
+../Core/Src/main.c:356:6:Error_Handler	4	static

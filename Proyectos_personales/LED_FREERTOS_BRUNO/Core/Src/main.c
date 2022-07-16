@@ -99,6 +99,9 @@ void leer_pulsador()
 	{
 		if(!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0)){//entra si el pulsador esta presionado
 
+			/* Bajo la prioridad de un task en lugar de subir la de este ya que si solo presione un boton,
+			 * el otro led debe seguir parpadeando
+			 */
 			vTaskPrioritySet(task1, 1);//Hago que la prioridad sea la mas alta para que
 			boton = 1;									 //al desploquearse los task anteriores no cambie los LED
 		}

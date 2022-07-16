@@ -186,6 +186,9 @@ void leer_pulsador()
  80001d8:	2b00      	cmp	r3, #0
  80001da:	d108      	bne.n	80001ee <leer_pulsador+0x26>
 
+			/* Bajo la prioridad de un task en lugar de subir la de este ya que si solo presione un boton,
+			 * el otro led debe seguir parpadeando
+			 */
 			vTaskPrioritySet(task1, 1);//Hago que la prioridad sea la mas alta para que
  80001dc:	4b18      	ldr	r3, [pc, #96]	; (8000240 <leer_pulsador+0x78>)
  80001de:	681b      	ldr	r3, [r3, #0]
