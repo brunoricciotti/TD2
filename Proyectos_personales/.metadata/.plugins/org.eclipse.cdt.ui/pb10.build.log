@@ -1,0 +1,10 @@
+16:42:59 **** Incremental Build of configuration Debug for project pb10 ****
+make -j12 all 
+arm-none-eabi-size   pb10.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4632	     20	   1572	   6224	   1850	pb10.elf
+Finished building: default.size.stdout
+ 
+
+16:42:59 Build Finished. 0 errors, 0 warnings. (took 281ms)
+

@@ -1,0 +1,17 @@
+14:14:07 **** Incremental Build of configuration Debug for project TUT_LCD_I2C_F103_CUBEIDE ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/i2c-lcd.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103xB -DDEBUG -c -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/i2c-lcd.d" -MT"Core/Src/i2c-lcd.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/i2c-lcd.o"
+arm-none-eabi-gcc -o "TUT_LCD_I2C_F103_CUBEIDE.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Documentos\ME1\Proyecto\LCD_2\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TUT_LCD_I2C_F103_CUBEIDE.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: TUT_LCD_I2C_F103_CUBEIDE.elf
+ 
+arm-none-eabi-size   TUT_LCD_I2C_F103_CUBEIDE.elf 
+arm-none-eabi-objdump -h -S  TUT_LCD_I2C_F103_CUBEIDE.elf  > "TUT_LCD_I2C_F103_CUBEIDE.list"
+   text	   data	    bss	    dec	    hex	filename
+   7928	     20	   1748	   9696	   25e0	TUT_LCD_I2C_F103_CUBEIDE.elf
+Finished building: default.size.stdout
+ 
+Finished building: TUT_LCD_I2C_F103_CUBEIDE.list
+ 
+
+14:14:09 Build Finished. 0 errors, 0 warnings. (took 1s.766ms)
+
