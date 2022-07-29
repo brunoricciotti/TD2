@@ -64,8 +64,8 @@ all: main-build
 main-build: LED_FREERTOS_5.elf secondary-outputs
 
 # Tool invocations
-LED_FREERTOS_5.elf LED_FREERTOS_5.map: $(OBJS) $(USER_OBJS) D:\Documentos\TD2\TD2\Proyectos_personales\LED_FREERTOS_5\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "LED_FREERTOS_5.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Documentos\TD2\TD2\Proyectos_personales\LED_FREERTOS_5\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LED_FREERTOS_5.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+LED_FREERTOS_5.elf LED_FREERTOS_5.map: $(OBJS) $(USER_OBJS) C:\Users\bruno\OneDrive\Documentos\TD2\TD2\Proyectos_personales\LED_FREERTOS_5\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "LED_FREERTOS_5.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\bruno\OneDrive\Documentos\TD2\TD2\Proyectos_personales\LED_FREERTOS_5\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LED_FREERTOS_5.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

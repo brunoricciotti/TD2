@@ -1,0 +1,8 @@
+../Core/Src/main.c:79:5:main	16	static
+../Core/Src/main.c:142:6:tarea_led	16	static
+../Core/Src/main.c:154:6:tarea_pulsador	24	static
+../Core/Src/main.c:197:6:SystemClock_Config	72	static
+../Core/Src/main.c:236:13:MX_GPIO_Init	40	static
+../Core/Src/main.c:274:6:StartDefaultTask	16	static
+../Core/Src/main.c:293:6:HAL_TIM_PeriodElapsedCallback	16	static
+../Core/Src/main.c:310:6:Error_Handler	4	static
