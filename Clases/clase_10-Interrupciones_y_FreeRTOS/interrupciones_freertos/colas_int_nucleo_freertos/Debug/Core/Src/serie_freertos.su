@@ -1,5 +1,0 @@
-serie_freertos.c:18:13:TareaTxSerie	16	static
-serie_freertos.c:31:6:serieFreeRTOS_IRQ	24	static,ignoring_inline_asm
-serie_freertos.c:60:6:serieFreeRTOS_inicializar	24	static
-serie_freertos.c:70:6:serieFreeRTOS_putchar	16	static
-serie_freertos.c:75:9:serieFreeRTOS_getchar	16	static

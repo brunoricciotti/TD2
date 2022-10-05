@@ -1,7 +1,0 @@
-tareas.c:10:6:agregar_tarea	32	static
-tareas.c:46:13:trigger_pendsv	16	static,ignoring_inline_asm
-tareas.c:68:6:correr_tareas	8	static
-tareas.c:76:6:cambiar_tareas	16	static
-tareas.c:91:6:despachar_tareas	16	static
-tareas.c:104:6:SysTick_Handler	8	static
-tareas.c:120:6:inicializar_tareas	16	static
