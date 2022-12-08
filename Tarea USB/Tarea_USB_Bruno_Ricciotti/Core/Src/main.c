@@ -46,7 +46,6 @@
 
 /* Private variables ---------------------------------------------------------*/
  ADC_HandleTypeDef hadc1;
-DMA_HandleTypeDef hdma_adc1;
 
 TIM_HandleTypeDef htim3;
 
@@ -68,7 +67,6 @@ arrebote pulsador;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_DMA_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM3_Init(void);
 /* USER CODE BEGIN PFP */
@@ -77,10 +75,6 @@ static void MX_TIM3_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){//Cuando se llena el buffer se llama a este callback
-int i =0;
-i++;
-}
 /* USER CODE END 0 */
 
 /**
@@ -111,7 +105,6 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
   MX_USB_DEVICE_Init();
   MX_ADC1_Init();
   MX_TIM3_Init();
@@ -119,7 +112,7 @@ int main(void)
 
   reporte[0] = 0;
 
-  HAL_ADC_Start_DMA(&hadc1,(uint32_t*)&(reporte[1]), 1);//vario en X
+  //HAL_ADC_Start_DMA(&hadc1,(uint32_t*)&(reporte[1]), 1);//vario en X
   inicializar_arrebote(&pulsador, PULSADOR_ACTIVO_BAJO, PULSADOR_TICS);
 
   /* USER CODE END 2 */
@@ -133,7 +126,10 @@ int main(void)
 	  {
 		  reporte[0] = 1 - reporte[0]; // toggle from 0 to 1 ... or 1 to 0
 	  }
-	  HAL_Delay(1000);
+	  HAL_ADC_Start(&hadc1);
+	  HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+	  reporte[1]= ((HAL_ADC_GetValue(&hadc1))>>4) & 0xFF;
+	  HAL_Delay(10);
 	  USBD_HID_SendReport(&hUsbDeviceFS, (uint8_t*)reporte, 3);
     /* USER CODE END WHILE */
 
@@ -211,7 +207,7 @@ static void MX_ADC1_Init(void)
   */
   hadc1.Instance = ADC1;
   hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
-  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.ContinuousConvMode = ENABLE;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
@@ -281,22 +277,6 @@ static void MX_TIM3_Init(void)
   /* USER CODE BEGIN TIM3_Init 2 */
 
   /* USER CODE END TIM3_Init 2 */
-
-}
-
-/**
-  * Enable DMA controller clock
-  */
-static void MX_DMA_Init(void)
-{
-
-  /* DMA controller clock enable */
-  __HAL_RCC_DMA1_CLK_ENABLE();
-
-  /* DMA interrupt init */
-  /* DMA1_Channel1_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
 
 }
 
